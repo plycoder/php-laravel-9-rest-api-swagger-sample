@@ -17,17 +17,17 @@ class CreateDoctorsTable extends Migration
             $table->id();
             $table->timestamps();
 			$table->string('name');
-			$table->date('dob');
-			$table->string('phone');
-			$table->string('email');
-			$table->string('degrees');
-			$table->string('services');
-			$table->string('job_position');
-			$table->string('address');
+			$table->date('dob')->nullable();
+			$table->string('phone')->nullable();
+			$table->string('email')->nullable();
+			$table->string('degrees')->nullable();
+			$table->string('services')->nullable();
+			$table->string('job_position')->nullable();
+			$table->string('address')->nullable();
 			$table->longText('detail');
-			$table->string('post_code');
-			$table->string('geo_location');
-			$table->string('country_code');
+			$table->string('post_code')->nullable();
+			$table->string('geo_location')->nullable();
+			$table->string('country_code')->nullable();
         });
     }
 

@@ -1,0 +1,453 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Rest API",
+        "description": "Laravel Rest API with Swagger OpenApi",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/": {},
+        "/api/doctors": {
+            "get": {
+                "tags": [
+                    "Authorize"
+                ],
+                "summary": "Get Doctor List",
+                "operationId": "4479c235c75c92e2425c15211470f478",
+                "requestBody": {
+                    "content": {
+                        "application/json": {}
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Doctors List"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "number",
+                                                        "example": 1
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "example title"
+                                                    },
+                                                    "email": {
+                                                        "type": "string",
+                                                        "example": "test@asb.cpm"
+                                                    },
+                                                    "detail": {
+                                                        "type": "string",
+                                                        "example": "example content"
+                                                    },
+                                                    "updated_at": {
+                                                        "type": "string",
+                                                        "example": "2021-12-11T09:25:53.000000Z"
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "example": "2021-12-11T09:25:53.000000Z"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Authorize"
+                ],
+                "summary": "Create Doctor",
+                "operationId": "ee9dd1ffdbcab8d6d47b2dd0bd06ed9b",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "": {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "email": {
+                                                "type": "string"
+                                            },
+                                            "detail": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "name": "example name",
+                                    "email": "md9.mahabubur@example.com",
+                                    "detail": "example detail"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Doctors created successfully."
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "number",
+                                                    "example": 1
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "example name"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "test@asb.cpm"
+                                                },
+                                                "detail": {
+                                                    "type": "string",
+                                                    "example": "example detail"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "example": "2021-12-11T09:25:53.000000Z"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "example": "2021-12-11T09:25:53.000000Z"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/api/doctors/{id}": {
+            "get": {
+                "tags": [
+                    "Authorize"
+                ],
+                "summary": "Show Doctor Details",
+                "operationId": "d38f21421c3eca3294015240d2d7e1ad",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "doctor Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Doctors retrieved successfully."
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "number",
+                                                    "example": 1
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "example name"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "test@asb.cpm"
+                                                },
+                                                "detail": {
+                                                    "type": "string",
+                                                    "example": "example detail"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "example": "2021-12-11T09:25:53.000000Z"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "example": "2021-12-11T09:25:53.000000Z"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Authorize"
+                ],
+                "summary": "Update Doctor",
+                "operationId": "dd6e159937989a95449bd7ebab306776",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "doctor Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        },
+                        "example": 1
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "": {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "detail": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "name": "example name",
+                                    "detail": "example detail"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Doctors updated successfully."
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "number",
+                                                    "example": 1
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "example name"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "test@asb.cpm"
+                                                },
+                                                "detail": {
+                                                    "type": "string",
+                                                    "example": "example detail"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "example": "2021-12-11T09:25:53.000000Z"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "example": "2021-12-11T09:25:53.000000Z"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Authorize"
+                ],
+                "summary": "Delete Doctor",
+                "operationId": "04bc41e2ab78cd139c19896955c012af",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "doctor Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        },
+                        "example": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Doctors deleted successfully."
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "number",
+                                                    "example": 1
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "example name"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "test@asb.cpm"
+                                                },
+                                                "detail": {
+                                                    "type": "string",
+                                                    "example": "example detail"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "example": "2021-12-11T09:25:53.000000Z"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "example": "2021-12-11T09:25:53.000000Z"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearer_token": {
+                "type": "apiKey",
+                "description": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiNzVmOWJlMTgwYTNmNGViYTFmZTk2NjQ2MzhjZGMwOTgzYTc5ZDIzODk1YmVjYzNkOWM4MGEwODFmMGU4MDc1YzBhNDVlNjRjNzA2OWMwOGQiLCJpYXQiOjE2NjAxMTI3MjUuODQzMzg3LCJuYmYiOjE2NjAxMTI3MjUuODQzMzksImV4cCI6MTY5MTY0ODcyNS44Mzg1MTMsInN1YiI6IjIiLCJzY29wZXMiOltdfQ.kZxCpNE2lvobZaew4juRajzy9XaB71whVQtGZKKKrQh_FulD7zhOA7wO4yCZEgW_HEruKs-VzqUAGxRyWyOfWy_t2Hx7dBTdG61gpDmJcFV5TOHchckTZTkmPysYZnu0tbHxwK0TXs8X_e2gciga835mf1LMMzwAEAR8pNF5vkgQyW7MIYlF6MRahDM6mUTolEAYohMvjk0IsbU7Ddcpnn6Orrc-dFuyGFiqcnMKyVFqzrwswEyZpm_cmUVD9JR3lKJrz4OYFb-JKtEMZVRORABBfSMBpqeKPEnmEF2zV8YC7BwHCIkseeOIXPWDBsBo0wmNxFun43xlmlNT8zF6D_97ay82baLbs4akWq7xH2j9pc3ZeCsSAz6lHaXgH3NZFqnBonV54xAFLX0g376XF8j1zkxP7JzqhhIsgXs4k5Ii20ionlflPtX4lS3FXUYvMcBNuflfXVgW5WXqECXAiZ5VpkB77aYwEG8mnEGmYhZ_b5R3xMOhVTwIDt44flpsOmoMUqJCncejQclsT74tQrTIBZG5HNB0EtSrj3A_3lIp8ZrRmisK6zIIXmjA73LGWCqSIkGTRsqj653LNBOfadvE38FHOv6qwPY5qOl-p5yW9E6654ZXoheozJnbOeleP3ynA996toj-DxmVZaqjsRb1mUzB9rPeXQDFvos3Cwo",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "UnAuthorize",
+            "description": "No user login required"
+        },
+        {
+            "name": "Authorize",
+            "description": "User login required"
+        }
+    ]
+}
