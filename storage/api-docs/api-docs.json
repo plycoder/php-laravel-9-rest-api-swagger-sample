@@ -428,6 +428,177 @@
                     }
                 ]
             }
+        },
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "UnAuthorize"
+                ],
+                "summary": "Create User",
+                "operationId": "3b7b9ff448e32ac15d4cfd86715c0359",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "": {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "email": {
+                                                "type": "string"
+                                            },
+                                            "password": {
+                                                "type": "string"
+                                            },
+                                            "c_password": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "name": "example name",
+                                    "email": "md9.mahabubur@example.com",
+                                    "password": "12345678",
+                                    "c_password": "12345678"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "token": {
+                                            "type": "string",
+                                            "example": "some token value"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "UnAuthorize"
+                ],
+                "summary": "Login to system",
+                "operationId": "8f68ad1c61d02f4b408ec6cf6128d507",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "": {
+                                        "properties": {
+                                            "email": {
+                                                "type": "string"
+                                            },
+                                            "password": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "email": "md9.mahabubur@example.com",
+                                    "password": "enter password"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "token": {
+                                            "type": "string",
+                                            "example": "some token value"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/get-user": {
+            "get": {
+                "tags": [
+                    "Authorize"
+                ],
+                "summary": "Show User Details",
+                "operationId": "009f9cd9bc7c3a031a4559c495866cb5",
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "user": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "number",
+                                                    "example": 1
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "example": "example name"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "example": "test@asb.cpm"
+                                                },
+                                                "detail": {
+                                                    "type": "string",
+                                                    "example": "example detail"
+                                                },
+                                                "updated_at": {
+                                                    "type": "string",
+                                                    "example": "2021-12-11T09:25:53.000000Z"
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "example": "2021-12-11T09:25:53.000000Z"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
         }
     },
     "components": {
